@@ -24,5 +24,7 @@ def board(arr)
 end
 
 def play
-  
+  cell = [1,2,3,4,5,6,7,8,9]
+  players = player_assignment
+  board(cell)
 end
