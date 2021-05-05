@@ -76,6 +76,8 @@ def play
       board(cell)
     end
   end
+  "It's a draw"
+  repeat_game
 end
 
 def repeat_game
