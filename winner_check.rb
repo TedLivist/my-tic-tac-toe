@@ -22,4 +22,10 @@ class WinnerCheck
       @checking = true
     end
   end
+
+  def win?
+    if @checking == true
+      return true
+    end
+  end
 end
