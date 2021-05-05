@@ -45,6 +45,11 @@ def play
       cell[input - 1] = player_mark
       check = WinnerCheck.new
       check.check_win(players[0], player_mark, input, cell)
+      if check.win?
+        board(cell)
+        puts "#{players[0]} is the winner!"
+        break
+      end
       board(cell)
     else
       puts "It's #{players[1]}'s turn!"
@@ -63,6 +68,11 @@ def play
       cell[input - 1] = player_mark
       check = WinnerCheck.new
       check.check_win(players[1], player_mark, input, cell)
+      if check.win?
+        board(cell)
+        puts "#{players[1]} is the winner!"
+        break
+      end
       board(cell)
     end
 end
