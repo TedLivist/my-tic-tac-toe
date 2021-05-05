@@ -31,6 +31,17 @@ def play
     if i.even?
       puts "It's #{players[0]}'s turn!"
       player_mark = 'X'
+      begin
+        puts "Select a number"
+        input = gets.chomp.to_i
+        if (input.nil? or input < 1 or input > 9 or !cell[input - 1].is_a?(Integer)) then
+          raise StandardError, input
+        end
+      rescue StandardError
+        puts "Select a number between 1 and 9"
+        puts ""
+        retry
+      end
       cell[input - 1] = player_mark
       board(cell)
     else
