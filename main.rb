@@ -22,3 +22,7 @@ def board(arr)
   puts "| #{arr[6]} | #{arr[7]} | #{arr[8]} |"
   puts "+---+---+---+"
 end
+
+def play
+  
+end
