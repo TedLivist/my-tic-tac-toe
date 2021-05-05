@@ -1,3 +1,5 @@
+require_relative './winner_check.rb'
+
 def player_assignment
   puts "Welcome to this tic-tac-toe game"
   puts "Please, put in your name Player 1"
@@ -76,7 +78,7 @@ def play
       board(cell)
     end
   end
-  "It's a draw"
+  puts "It's a draw"
   repeat_game
 end
 
