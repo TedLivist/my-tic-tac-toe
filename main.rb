@@ -75,4 +75,15 @@ def play
       end
       board(cell)
     end
+  end
+end
+
+def repeat_game
+  puts "Do you want to repeat? (Y/N)"
+  answer = gets.chomp.downcase
+  if answer == 'y'
+    play
+  else
+    puts "Game over"
+  end
 end
