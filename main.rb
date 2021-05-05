@@ -87,3 +87,5 @@ def repeat_game
     puts "Game over"
   end
 end
+
+play
