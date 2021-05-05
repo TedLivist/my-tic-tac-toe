@@ -43,6 +43,8 @@ def play
         retry
       end
       cell[input - 1] = player_mark
+      check = WinnerCheck.new
+      check.check_win(players[0], player_mark, input, cell)
       board(cell)
     else
       puts "It's #{players[1]}'s turn!"
@@ -59,6 +61,8 @@ def play
         retry
       end
       cell[input - 1] = player_mark
+      check = WinnerCheck.new
+      check.check_win(players[1], player_mark, input, cell)
       board(cell)
     end
 end
