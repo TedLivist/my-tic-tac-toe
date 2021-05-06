@@ -36,6 +36,7 @@ def play
       begin
         puts "Select a number"
         input = gets.chomp.to_i
+        puts ""
         if (input.nil? or input < 1 or input > 9 or !cell[input - 1].is_a?(Integer)) then
           raise StandardError, input
         end
@@ -50,15 +51,16 @@ def play
       if check.win?
         board(cell)
         puts "#{players[0]} is the winner!"
-        break
+        repeat_game
       end
       board(cell)
-    else
+    elsif i.odd?
       puts "It's #{players[1]}'s turn!"
       player_mark = 'O'
       begin
         puts "Select a number"
         input = gets.chomp.to_i
+        puts ""
         if (input.nil? or input < 1 or input > 9 or !cell[input - 1].is_a?(Integer)) then
           raise StandardError, input
         end
@@ -73,12 +75,13 @@ def play
       if check.win?
         board(cell)
         puts "#{players[1]} is the winner!"
-        break
+        repeat_game
       end
       board(cell)
     end
   end
-  puts "It's a draw"
+  puts ""
+  puts "DRAW"
   repeat_game
 end
 
