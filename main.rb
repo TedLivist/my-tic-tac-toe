@@ -46,7 +46,7 @@ def play
       end
       cell[input - 1] = player_mark
       check = WinnerCheck.new
-      check.check_win(players[0], player_mark, input, cell)
+      check.check_win(players[0], player_mark, cell)
       if check.win?
         board(cell)
         puts "#{players[0]} is the winner!"
@@ -69,7 +69,7 @@ def play
       end
       cell[input - 1] = player_mark
       check = WinnerCheck.new
-      check.check_win(players[1], player_mark, input, cell)
+      check.check_win(players[1], player_mark, cell)
       if check.win?
         board(cell)
         puts "#{players[1]} is the winner!"
@@ -83,7 +83,7 @@ def play
 end
 
 def repeat_game
-  puts "Do you want to repeat? (Y/N)"
+  puts "Play another round? (Y/N)"
   answer = gets.chomp.downcase
   if answer == 'y'
     play

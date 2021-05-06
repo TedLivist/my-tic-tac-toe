@@ -3,7 +3,7 @@ class WinnerCheck
     @checking = false
   end
 
-  def check_win(player, player_mark, num, arr)
+  def check_win(player, player_mark, arr)
     if arr[0] == player_mark and arr[1] == player_mark and arr[2] == player_mark
       @checking = true
     elsif arr[3] == player_mark and arr[4] == player_mark and arr[5] == player_mark
