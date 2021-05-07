@@ -29,7 +29,7 @@ def play
   cell = [1,2,3,4,5,6,7,8,9]
   players = player_assignment
   board(cell)
-  [0,1,2,3,4,5,6,7,8].each do |i|
+  [0,1,2,3,4,5,6,7,8,9].each do |i|
     if i.even?
       puts "It's #{players[0]}'s turn!"
       player_mark = 'X'
@@ -52,9 +52,10 @@ def play
         board(cell)
         puts "#{players[0]} is the winner!"
         repeat_game
+        break
       end
       board(cell)
-    elsif i.odd?
+    elsif i.odd? and i != 9
       puts "It's #{players[1]}'s turn!"
       player_mark = 'O'
       begin
@@ -76,13 +77,15 @@ def play
         board(cell)
         puts "#{players[1]} is the winner!"
         repeat_game
+        break
       end
       board(cell)
+    elsif i == 9
+      puts ""
+      puts "DRAW"
+      repeat_game
     end
   end
-  puts ""
-  puts "DRAW"
-  repeat_game
 end
 
 def repeat_game
