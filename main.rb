@@ -1,24 +1,18 @@
+require_relative './players.rb'
+require_relative './board.rb'
 require_relative './winner_check.rb'
 
-def player_assignment
-  puts "Welcome to this tic-tac-toe game"
-  puts "Please, put in your name Player 1"
-  player_one = gets.chomp
-  sleep 0.5
-  puts "Player 1 your marker is 'X'"
-  puts ""
-  puts "Please, put in your name Player 2"
-  player_two = gets.chomp
-  sleep 0.5
-  puts "Player 2 your marker is 'O'"
-  puts ""
-  [player_one, player_two]
-end
+players = Players.new
+the_players = players.player_assignment
+print the_players
 
 def play
   cell = [1,2,3,4,5,6,7,8,9]
-  players = player_assignment
-  board(cell)
+  players = Players.new
+  the_players = players.player_assignment
+  print the_players
+  brd = Board.new
+  brd.board(cell)
   [0,1,2,3,4,5,6,7,8,9].each do |i|
     if i.even?
       puts "It's #{players[0]}'s turn!"
@@ -39,12 +33,12 @@ def play
       check = WinnerCheck.new
       check.check_win(players[0], player_mark, cell)
       if check.win?
-        board(cell)
+        brd.board(cell)
         puts "#{players[0]} is the winner!"
         repeat_game
         break
       end
-      board(cell)
+      brd.board(cell)
     elsif i.odd? and i != 9
       puts "It's #{players[1]}'s turn!"
       player_mark = 'O'
@@ -64,12 +58,12 @@ def play
       check = WinnerCheck.new
       check.check_win(players[1], player_mark, cell)
       if check.win?
-        board(cell)
+        brd.board(cell)
         puts "#{players[1]} is the winner!"
         repeat_game
         break
       end
-      board(cell)
+      brd.board(cell)
     elsif i == 9
       puts ""
       puts "DRAW"
