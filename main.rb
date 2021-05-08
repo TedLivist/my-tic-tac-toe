@@ -2,9 +2,6 @@ require_relative './players.rb'
 require_relative './board.rb'
 require_relative './winner_check.rb'
 
-players = Players.new.player_assignment
-print players
-
 def play
   cell = [1,2,3,4,5,6,7,8,9]
   players = Players.new.player_assignment
