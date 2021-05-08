@@ -2,15 +2,12 @@ require_relative './players.rb'
 require_relative './board.rb'
 require_relative './winner_check.rb'
 
-players = Players.new
-the_players = players.player_assignment
-print the_players
+players = Players.new.player_assignment
+print players
 
 def play
   cell = [1,2,3,4,5,6,7,8,9]
-  players = Players.new
-  the_players = players.player_assignment
-  print the_players
+  players = Players.new.player_assignment
   brd = Board.new
   brd.board(cell)
   [0,1,2,3,4,5,6,7,8,9].each do |i|
